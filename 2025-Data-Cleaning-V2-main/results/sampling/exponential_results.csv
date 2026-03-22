@@ -1,0 +1,2 @@
+sampled_size,sampling_method,run   ,epoch,train_loss,train_acc,val_acc,tta_val_acc,total_time_seconds
+7500,exponential,,eval,0.0386,0.9971,0.7635,0.7831,131.0276
