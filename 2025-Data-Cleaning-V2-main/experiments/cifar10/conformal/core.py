@@ -1,7 +1,14 @@
 import torch
 import numpy as np
-from airbench import train94, train96, infer, CifarLoader
+import sys
+from pathlib import Path
 
+current_dir = Path(__file__).parent
+root_dir = current_dir.parent.parent.parent
+airbench_dir = root_dir / "cifar10-airbench"
+sys.path.insert(0, str(airbench_dir))
+
+from airbench import train94, train96, infer, CifarLoader
 
 def split_data(loader, train_ratio=0.7, calib_ratio=0.15):
     """

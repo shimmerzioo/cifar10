@@ -1,13 +1,17 @@
 import click
 import sys
 from pathlib import Path
-from airbench import train94, train96, infer, evaluate, CifarLoader
 import pandas as pd
 import torch
 import numpy as np
 import copy
 import os
 from tqdm import tqdm
+current_dir = Path(__file__).parent
+root_dir = current_dir.parent.parent
+airbench_dir = root_dir / "cifar10-airbench"
+sys.path.insert(0, str(airbench_dir))
+from airbench import train94, train96, infer, evaluate, CifarLoader
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from conformal import split_data, train_calibrate_model, generate_prediction_sets, compute_uncertainty_scores, save_results, compute_metrics
 from sampling import dynamic_sampling_scheduler, calculate_sampling_probabilities, apply_sampling
